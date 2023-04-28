@@ -1,15 +1,20 @@
 package br.com.ffscompany.marketplacemanager.model;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
-import lombok.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.Hibernate;
+
+import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @Table(schema = "marketplace", name = "cliente")
 public class ClientModel {
 
@@ -17,17 +22,30 @@ public class ClientModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Nonnull
+    @NotNull
     @Column(name = "nome")
     private String name;
 
-    @Nonnull
+    @NotNull
     private String cpf;
 
-    @Nonnull
+    @NotNull
     @Column(name = "telefone")
     private String telephone;
 
-    @Nonnull
+    @NotNull
     private String email;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        ClientModel that = (ClientModel) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

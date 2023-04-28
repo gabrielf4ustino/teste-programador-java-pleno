@@ -4,11 +4,10 @@ import br.com.ffscompany.marketplacemanager.dto.ClientDTO;
 import br.com.ffscompany.marketplacemanager.model.ClientModel;
 import br.com.ffscompany.marketplacemanager.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -16,22 +15,23 @@ public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public void register(ClientDTO clientToRegister) {
-        try {
-            ClientModel clientModel = new ClientModel(
-                    null,
-                    clientToRegister.name(),
-                    clientToRegister.cpf(),
-                    clientToRegister.telephone(),
-                    clientToRegister.email()
-            );
-            clientRepository.save(clientModel);
-        }catch (Exception e){
-            throw new HttpClientErrorException(HttpStatusCode.valueOf(500));
-        }
+    public ClientModel register(ClientDTO clientToRegister) {
+        ClientModel clientModel = new ClientModel(
+                null,
+                clientToRegister.name(),
+                clientToRegister.cpf(),
+                clientToRegister.telephone(),
+                clientToRegister.email()
+        );
+        clientRepository.save(clientModel);
+        return clientModel;
     }
 
-    public List<ClientModel> findAllClients(){
+    public List<ClientModel> findAllClients() {
         return clientRepository.findAll();
+    }
+
+    public Optional<ClientModel> findClientById(Long id){
+        return clientRepository.findById(id);
     }
 }
