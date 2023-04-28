@@ -2,8 +2,10 @@ package br.com.ffscompany.marketplacemanager.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -16,6 +18,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+//@EnableJpaRepositories(basePackages = "br.com.ffscompany.marketplacemanager.repository")
+//@EntityScan(basePackages = "br.com.ffscompany.marketplacemanager.model")
 public class DataBaseConfig {
 
     // Injeção de dependências das propriedades do arquivo application.properties
@@ -53,7 +57,7 @@ public class DataBaseConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("br.com.ffscompany.marketproject.model"); // Define o pacote onde estão as entidades
+        em.setPackagesToScan("br.com.ffscompany.marketplacemanager.model"); // Define o pacote onde estão as entidades
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(additionalProperties()); // Define as propriedades adicionais para o Hibernate
         return em;
