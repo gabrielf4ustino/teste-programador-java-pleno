@@ -20,3 +20,5 @@ Para executar a aplicação é necessário ter instalado o Docker e o Docker Com
 - git clone "https://github.com/gabrielf4ustino/teste-programador-java-pleno.git"
 - cd ./teste-programador-java-pleno
 - docker compose up
+
+*Nota: toda nomenclatura e comentários foram padronizados para a língua inglesa.*
