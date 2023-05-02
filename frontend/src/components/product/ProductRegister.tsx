@@ -50,7 +50,7 @@ const ProductRegister: React.FC<Props> = ({handleSelect, handleAlert}) => {
         if (description && unit && !isNaN(price)) {
             register(description, unit, price).then(
                 response => {
-                    if (response.staus === 201)
+                    if (response.status === 201)
                         handleSave();
                     else
                         throw new Error(response.message);

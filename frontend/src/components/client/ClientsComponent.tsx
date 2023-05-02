@@ -130,7 +130,7 @@ const ClientsComponent: React.FC<Props> = ({handleAlert}) => {
                         <OrderEditor client={clientEditing} order={orderEditing}
                                      closeModalHandler={closeModalHandler}/> : null)
                 default:
-                    return <OrderRegister closeModalHandler={closeModalHandler} client={client}/>
+                    return <OrderRegister closeModalHandler={closeModalHandler} client={client} handleAlert={handleAlert}/>
             }
         }
 
@@ -155,7 +155,6 @@ const ClientsComponent: React.FC<Props> = ({handleAlert}) => {
                                                 default:
                                                     removeOrder(id).then(() => {
                                                         setRefresh(!refresh);
-                                                        handlerClick({screen: "clientsList", clientId: client.id});
                                                     }).catch(() => handleAlert("Erro ao tentar remover")).finally(onClose);
                                             }
 

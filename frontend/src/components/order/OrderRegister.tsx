@@ -8,10 +8,11 @@ import Decimal from "decimal.js";
 
 interface Props {
     closeModalHandler: () => void;
-    client: Client
+    client: Client,
+    handleAlert: (message: string) => void;
 }
 
-const OrderRegister: React.FC<Props> = ({closeModalHandler, client}) => {
+const OrderRegister: React.FC<Props> = ({closeModalHandler, client, handleAlert}) => {
 
     const [validatedSubmit, setValidatedSubmit] = useState(false);
     const [products, setProducts] = useState<Product[]>([]);
@@ -32,6 +33,7 @@ const OrderRegister: React.FC<Props> = ({closeModalHandler, client}) => {
 
         if (!form.checkValidity() || selectedProducts.length === 0) {
             event.stopPropagation();
+            handleAlert("Selecione pelo menos um produto.")
             setValidatedSubmit(true);
             return;
         }
