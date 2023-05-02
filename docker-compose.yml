@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   db:
@@ -9,6 +9,36 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: db
     volumes:
-      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./backend/init-scripts:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
+    networks:
+      my-network:
+        aliases:
+          - db
+
+  api:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      my-network:
+        aliases:
+          - api
+
+  ui:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    networks:
+      my-network:
+        aliases:
+          - ui
+
+networks:
+  my-network:
+    driver: bridge
