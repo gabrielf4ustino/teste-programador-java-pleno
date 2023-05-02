@@ -14,7 +14,7 @@ RUN mvn dependency:resolve
 COPY src ./src
 
 # Build the application using Maven
-RUN mvn package -DskipTests
+RUN mvn package
 
 # Use the official OpenJDK 20 image as the runtime image
 FROM openjdk:20

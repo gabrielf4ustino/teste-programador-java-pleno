@@ -1,102 +1,22 @@
-# Desafio de Programador Full Stack Java
+## EasyOrder
 
-# O que preciso fazer?
+A aplicação foi projetada para executar todos os componentes (API, banco de dados e UI) com apenas um comando.
 
-Vamos ser práticos e diretos, se você quer trabalhar conosco siga os passos abaixo:
+## Tecnologias utilizadas
 
-* Faça um "fork" desse projeto para sua conta GitHub.
-* Implemente o desafio descrito no tópico abaixo.
-* Faça um push para seu repositório com o desafio implementado.
-* Envie um email para (fernandomoraes@compayz.com) com cópia para (alexandrecosta@compayz.com) avisando que finalizou o desafio com a url do seu fork.
+A escolha das tecnologias para o desenvolvimento do projeto foi baseada em critérios de qualidade, desempenho e
+compatibilidade. Para a camada de backend, optou-se por utilizar o Spring como framework de criação da API RESTful, pois
+ele oferece recursos avançados de segurança, validação, documentação e testes, além de ser uma ferramenta consolidada no
+mercado e com uma grande comunidade de desenvolvedores. Para a camada de frontend, optou-se por utilizar o React com
+Vite e TypeScript, pois eles permitem criar interfaces dinâmicas e responsivas, utilizando uma linguagem que possui
+tipagem estática e que facilita a manutenção e a compreensão do código fonte.
 
-# Desafio de Clientes, Produtos e Pedidos
+## Pré requisitos
 
-Você deverá criar 2 aplicações para cadastramento de clientes, produtos e pedidos:
+Para executar a aplicação é necessário ter instalado o Docker e o Docker Compose.
 
-**Back-end:** aplicação JavaEE baseada em Web Services no padrão RESTful JAX-RS.
+## Método de execução
 
-**Front-end:** Single Page Application que se comunique com estes serviços.
-
-**Requisitos:**
-
-- Permitir o cadastro de clientes
-- Permitir o cadastro de produtos
-- Permitir o registro de pedidos para clientes
-
-O cadastro do cliente deve conter as seguintes informações:
-
-* Código (Número Sequencial Automático)
-* Nome (Campo Obrigatório)
-* CPF (Validar CPF e máscara)
-* Telefone (Campo Obrigatório com máscara)
-* E-mail (Validar E-mail, máscara e campo obrigatório)
-
-O cadastro de produto deve contar as seguintes informações:
-
-* Código (Número Sequencial Automático)
-* Descrição (Campo Obrigatório)
-* Unidade (Campo Obrigatório)
-* Valor (Campo Obrigatório)
-
-Os Pedidos contém as seguintes informações:
-
-* Numero da Pedido (Número Sequencial Automático)
-* Data de emissão (Data automática)
-* Descrição (Apenas texto)
-* Lista de Produtos (Obrigatório ao menos 1 produto)
-* Valor Total (Deverá ser calculado através da soma do valor de todos os produtos vinculados ao pedido)
-
-### Tecnologias
-
-Escolha umas das opções abaixo para implementar sua solução. A modelagem dos dados fica a seu critério. Não se preocupe com autenticação.
-
-#### BACK-END
-
-**Opção 1**
-
-* Aplicação JavaEE utilizando framework Quarkus(preferencial) ou Spring
-* Banco de dados PostgreSQL
-* RESTFul API ou Jersey JAX-RS
-
-**Opção 2**
-
-* Aplicação pura Java EE (não utilize Struts, EJB, etc)
-* RESTful API JAX-RS utilizando Servlets ou framework Jersey
-* Banco de dados SQL (MySQL, PostgreSQL, HSQLDB) com JPA
-
-####  FRONT-END
-*  Vue.js com Nuxt (preferencialmente)
-* React
-* Single Page Application utilizando apenas HTML5 e CSS3
-* Javascript puro / JQuery (e plugins)
-
-Utilizar Bootstrap (http://getbootstrap.com/)
-
-**Recomendações gerais:**
-
-* Não utilize frameworks ou BD que não foram indicados
-* Para servidor de aplicação utilize Jetty ou Tomcat (Não utilize: JBOSS, Wildfly ou qualquer outro servidor. Por quê? Critério de facilidade de configuração)
-* Utilize o Maven para gerenciamento de dependências
-
-
-### Arquitetura e documentação
-
-No arquivo README do projeto explique o funcionamento e a arquitetura da solução adotada na sua implementação. Descreva também os passos para executar corretamente seu projeto.
-
-### Avaliação
-
-Entre os critérios de avaliação estão:
-
-* Facilidade de configuração do projeto
-* Performance
-* Código limpo e organização
-* Documentação de código
-* Documentação do projeto (readme)
-* Arquitetura
-* Boas práticas de desenvolvimento
-* Design Patterns
-
-### DICA
-
-* Utilize testes automatizados para inserir os dados
-* Utilize alguma ferramenta(eq. Postman) para realizar as chamadas via get/post para inserir e exibir os dados
+- git clone "https://github.com/gabrielf4ustino/teste-programador-java-pleno.git"
+- cd ./teste-programador-java-pleno
+- docker compose up

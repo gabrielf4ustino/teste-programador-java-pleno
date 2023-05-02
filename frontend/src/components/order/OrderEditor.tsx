@@ -20,7 +20,7 @@ const OrderEditor: React.FC<Props> = ({closeModalHandler, order, client}) => {
 
     useEffect(() => {
         getAll().then(products => {
-            setProducts(products);
+            setProducts(products.data);
         });
     }, [client, order]);
 

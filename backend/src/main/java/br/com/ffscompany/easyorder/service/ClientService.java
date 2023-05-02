@@ -28,7 +28,7 @@ public class ClientService implements br.com.ffscompany.easyorder.service.Servic
      */
     public ClientModel register(ClientDTO clientToRegister) {
         ClientModel clientModel = new ClientModel(
-                null,
+                clientToRegister.id(),
                 clientToRegister.name(),
                 clientToRegister.cpf(),
                 clientToRegister.telephone(),

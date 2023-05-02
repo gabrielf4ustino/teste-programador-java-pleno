@@ -4,6 +4,7 @@ services:
   db:
     image: postgres
     restart: always
+    container_name: easyorder-db
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
@@ -21,8 +22,17 @@ services:
     build:
       context: ./backend/
       dockerfile: Dockerfile
+    container_name: easyorder-api
+    environment:
+      spring.datasource.url: jdbc:postgresql://db:5432/db
+      spring.datasource.username: admin
+      spring.datasource.password: admin
+      spring.datasource.driver-class-name: org.postgresql.Driver
+      spring.jpa.show-sql: false
+      spring.jpa.hibernate.ddl-auto: update
     ports:
       - "8080:8080"
+    restart: always
     networks:
       my-network:
         aliases:
@@ -32,8 +42,10 @@ services:
     build:
       context: ./frontend/
       dockerfile: Dockerfile
+    container_name: easyorder-ui
     ports:
       - "5173:5173"
+    restart: always
     networks:
       my-network:
         aliases:

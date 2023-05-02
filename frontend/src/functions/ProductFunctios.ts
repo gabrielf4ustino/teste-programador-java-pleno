@@ -9,7 +9,7 @@ export const register = (description: string, unit: string, price: number) => {
     };
 
     return axios.request(options).then(function (response) {
-        return response.data;
+        return response;
     }).catch(function (error) {
         return error;
     });
@@ -24,7 +24,7 @@ export const edit = (id: number, description: string, unit: string, price: numbe
     };
 
     return axios.request(options).then(function (response) {
-        return response.data;
+        return response;
     }).catch(function (error) {
         return error;
     });
@@ -44,7 +44,7 @@ export const getAll = () => {
     const options = {method: 'GET', url: 'http://localhost:8080/produto/todos'};
 
     return axios.request(options).then(function (response) {
-        return response.data;
+        return response;
     }).catch(function (error) {
         return error;
     });
@@ -54,7 +54,7 @@ export const getById = (id: number) => {
     const options = {method: 'GET', url: 'http://localhost:8080/produto/' + id};
 
     return axios.request(options).then(function (response) {
-        return response.data;
+        return response;
     }).catch(function (error) {
         return error;
     });

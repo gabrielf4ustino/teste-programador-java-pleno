@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getAll, remove} from "../../functions/ProductFunctios";
 import {Badge, Button, Dropdown, ListGroup, Modal, Spinner} from "react-bootstrap";
 import Pagination from "react-bootstrap/Pagination";
@@ -19,7 +19,11 @@ const containerStyle = {
     padding: '10px',
 };
 
-const ProductsList = () => {
+interface Props {
+    handleAlert: (message: string) => void;
+}
+
+const ProductsList: React.FC<Props> = ({handleAlert}) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [clientsPerPage] = useState(7);
@@ -30,11 +34,13 @@ const ProductsList = () => {
 
     useEffect(() => {
         getAll().then((products) => {
-            if (products) {
-                products.sort((a: Product, b: Product) => b.id - a.id);
-                setProducts(products);
+            if (products.status === 200) {
+                products.data.sort((a: Product, b: Product) => b.id - a.id);
+                setProducts(products.data);
+            } else {
+                throw new Error(products.message)
             }
-        }).catch().finally(() => setLoading(false));
+        }).catch(reason => handleAlert(reason.message)).finally(() => setLoading(false));
     }, [refresh]);
 
     // Get current products
@@ -61,7 +67,7 @@ const ProductsList = () => {
                             <button onClick={onClose}>Cancelar</button>
                             <Button variant="danger"
                                     onClick={() => {
-                                        remove(id).then(() => setRefresh(!refresh)).catch(reason => alert(reason)).finally(onClose);
+                                        remove(id).then(() => setRefresh(!refresh)).catch(reason => handleAlert(reason.message)).finally(onClose);
                                     }}
                             >
                                 Sim, remover!

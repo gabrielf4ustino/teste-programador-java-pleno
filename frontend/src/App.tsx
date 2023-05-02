@@ -50,11 +50,11 @@ function App() {
             case "clientRegister":
                 return <ClientsRegister handleSelect={handleSelect} handleAlert={alertHandler}/>
             case "productRegister":
-                return <ProductRegister handleSelect={handleSelect}/>
+                return <ProductRegister handleSelect={handleSelect} handleAlert={alertHandler}/>
             case "clientList":
                 return <ClientsComponent handleAlert={alertHandler}/>
             case "productList":
-                return <ProductsList/>
+                return <ProductsList handleAlert={alertHandler}/>
             default:
                 return <ClientsComponent handleAlert={alertHandler}/>
         }
@@ -63,7 +63,7 @@ function App() {
     return (
         <>
             {alert != null ?
-                <Alert style={{zIndex: '9999', position: 'absolute', top: 0, margin: '10px 35%'}} variant="danger"
+                <Alert style={{zIndex: '9999', position: 'absolute', top: 0, margin: '10px 40%', width: '20%'}} variant="danger"
                        onClose={() => setAlert(null)} dismissible>
                     <Alert.Heading>Erro!</Alert.Heading>
                     <p>

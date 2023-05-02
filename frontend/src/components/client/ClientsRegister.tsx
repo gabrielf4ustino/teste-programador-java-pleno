@@ -49,7 +49,12 @@ const ClientsRegister: React.FC<Props> = ({handleSelect, handleAlert}) => {
         const email = formData.get('email') as string | undefined;
 
         if (name && cpf && telephone && email) {
-            register(name, cpf, telephone, email).then(handleSave).catch(reason => handleAlert(reason))
+            register(name, cpf, telephone, email).then(response => {
+                if (response.status === 201)
+                    handleSave()
+                else
+                    throw new Error(response.message)
+            }).catch(reason => handleAlert(reason.message));
         }
     };
 

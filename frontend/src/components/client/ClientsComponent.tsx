@@ -39,12 +39,16 @@ const ClientsComponent: React.FC<Props> = ({handleAlert}) => {
 
     useEffect(() => {
         getAllClients().then((clients) => {
-            if (clients) {
-                clients.sort((a: Client, b: Client) => b.id - a.id);
-                setClients(clients);
+            if (clients.status === 200) {
+                clients.data.sort((a: Client, b: Client) => b.id - a.id);
+                setClients(clients.data);
+            } else {
+                throw new Error(clients.message)
             }
+        }).catch(reason => {
+            handleAlert(reason.message)
         }).finally(() => setLoading(false));
-        getAllOrders().then(orders => setOrders(orders));
+        getAllOrders().then(orders => setOrders(orders)).catch(reason => handleAlert(reason.message));
     }, [refresh]);
 
     type ClickDTO = { screen: string, clientId: number }

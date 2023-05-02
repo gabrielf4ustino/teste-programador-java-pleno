@@ -21,7 +21,7 @@ const OrderRegister: React.FC<Props> = ({closeModalHandler, client}) => {
 
     useEffect(() => {
         getAll().then(products => {
-            setProducts(products);
+            setProducts(products.data);
         });
     }, [client]);
 

@@ -1,6 +1,26 @@
-  __  __            _        _         _                __  __                                   
- |  \/  | __ _ _ __| | _____| |_ _ __ | | __ _  ___ ___|  \/  | __ _ _ __   __ _  __ _  ___ _ __ 
- | |\/| |/ _` | '__| |/ / _ \ __| '_ \| |/ _` |/ __/ _ \ |\/| |/ _` | '_ \ / _` |/ _` |/ _ \ '__|
- | |  | | (_| | |  |   <  __/ |_| |_) | | (_| | (_|  __/ |  | | (_| | | | | (_| | (_| |  __/ |   
- |_|  |_|\__,_|_|  |_|\_\___|\__| .__/|_|\__,_|\___\___|_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|   
-                                |_|                                              |___/           
+                                                                                                                                 dddddddd
+EEEEEEEEEEEEEEEEEEEEEE                                                             OOOOOOOOO                                     d::::::d
+E::::::::::::::::::::E                                                           OO:::::::::OO                                   d::::::d
+E::::::::::::::::::::E                                                         OO:::::::::::::OO                                 d::::::d
+EE::::::EEEEEEEEE::::E                                                        O:::::::OOO:::::::O                                d:::::d
+  E:::::E       EEEEEE  aaaaaaaaaaaaa      ssssssssssyyyyyyy           yyyyyyyO::::::O   O::::::Orrrrr   rrrrrrrrr       ddddddddd:::::d     eeeeeeeeeeee    rrrrr   rrrrrrrrr
+  E:::::E               a::::::::::::a   ss::::::::::sy:::::y         y:::::y O:::::O     O:::::Or::::rrr:::::::::r    dd::::::::::::::d   ee::::::::::::ee  r::::rrr:::::::::r
+  E::::::EEEEEEEEEE     aaaaaaaaa:::::ass:::::::::::::sy:::::y       y:::::y  O:::::O     O:::::Or:::::::::::::::::r  d::::::::::::::::d  e::::::eeeee:::::eer:::::::::::::::::r
+  E:::::::::::::::E              a::::as::::::ssss:::::sy:::::y     y:::::y   O:::::O     O:::::Orr::::::rrrrr::::::rd:::::::ddddd:::::d e::::::e     e:::::err::::::rrrrr::::::r
+  E:::::::::::::::E       aaaaaaa:::::a s:::::s  ssssss  y:::::y   y:::::y    O:::::O     O:::::O r:::::r     r:::::rd::::::d    d:::::d e:::::::eeeee::::::e r:::::r     r:::::r
+  E::::::EEEEEEEEEE     aa::::::::::::a   s::::::s        y:::::y y:::::y     O:::::O     O:::::O r:::::r     rrrrrrrd:::::d     d:::::d e:::::::::::::::::e  r:::::r     rrrrrrr
+  E:::::E              a::::aaaa::::::a      s::::::s      y:::::y:::::y      O:::::O     O:::::O r:::::r            d:::::d     d:::::d e::::::eeeeeeeeeee   r:::::r
+  E:::::E       EEEEEEa::::a    a:::::assssss   s:::::s     y:::::::::y       O::::::O   O::::::O r:::::r            d:::::d     d:::::d e:::::::e            r:::::r
+EE::::::EEEEEEEE:::::Ea::::a    a:::::as:::::ssss::::::s     y:::::::y        O:::::::OOO:::::::O r:::::r            d::::::ddddd::::::dde::::::::e           r:::::r
+E::::::::::::::::::::Ea:::::aaaa::::::as::::::::::::::s       y:::::y          OO:::::::::::::OO  r:::::r             d:::::::::::::::::d e::::::::eeeeeeee   r:::::r
+E::::::::::::::::::::E a::::::::::aa:::as:::::::::::ss       y:::::y             OO:::::::::OO    r:::::r              d:::::::::ddd::::d  ee:::::::::::::e   r:::::r
+EEEEEEEEEEEEEEEEEEEEEE  aaaaaaaaaa  aaaa sssssssssss        y:::::y                OOOOOOOOO      rrrrrrr               ddddddddd   ddddd    eeeeeeeeeeeeee   rrrrrrr
+                                                           y:::::y
+                                                          y:::::y
+                                                         y:::::y
+                                                        y:::::y
+                                                       yyyyyyy
+
+
+${application.title} ${application.version}
+Powered by Spring Boot ${spring-boot.version}

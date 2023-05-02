@@ -35,7 +35,7 @@ export const edit = (id: number, name: string, cpf: string, telephone: string, e
     };
 
     return axios.request(options).then(function (response) {
-        return response.data;
+        return response;
     }).catch(function (error) {
         return error;
     });
@@ -55,7 +55,7 @@ export const getAll = () => {
     const options = {method: 'GET', url: 'http://localhost:8080/cliente/todos'};
 
     return axios.request(options).then(function (response) {
-        return response.data;
+        return response;
     }).catch(function (error) {
         return error;
     });
@@ -65,7 +65,7 @@ export const getById = (id: number) => {
     const options = {method: 'GET', url: 'http://localhost:8080/cliente/' + id};
 
     return axios.request(options).then(function (response) {
-        return response.data;
+        return response;
     }).catch(function (error) {
         return error;
     });

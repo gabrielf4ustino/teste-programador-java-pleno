@@ -18,9 +18,11 @@ const containerStyle = {
 
 interface Props {
     handleSelect: (newScreen: string) => void;
+    handleAlert: (message: string) => void;
 }
 
-const ProductRegister: React.FC<Props> = ({handleSelect}) => {
+
+const ProductRegister: React.FC<Props> = ({handleSelect, handleAlert}) => {
 
     const [validatedSubmit, setValidatedSubmit] = useState(false);
 
@@ -46,7 +48,14 @@ const ProductRegister: React.FC<Props> = ({handleSelect}) => {
         const price = Number(formData.get('price'));
 
         if (description && unit && !isNaN(price)) {
-            register(description, unit, price).then(handleSave);
+            register(description, unit, price).then(
+                response => {
+                    if (response.staus === 201)
+                        handleSave();
+                    else
+                        throw new Error(response.message);
+                }
+            ).catch(reason => handleAlert(reason.message));
         }
 
     };
